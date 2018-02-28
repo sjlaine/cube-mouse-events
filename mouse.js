@@ -55,7 +55,7 @@
     const domEvents = new THREEx.DomEvents(camera, renderer.domElement);
 
     domEvents.addEventListener(cube1, 'mouseover', function(event) {
-      console.log(event.target.material.color);
+
       const material = event.target.material;
 
       if (isGray) {
