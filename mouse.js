@@ -1,6 +1,7 @@
-  const darkBlue = new THREE.Color( 0x0D4F8B );
+  // const darkBlue = new THREE.Color( 0x0D4F8B );
   const gray = new THREE.Color(0xD3D3D3);
   const blue = new THREE.Color(0x007FFF);
+  const green = new THREE.Color(0x04DC7A);
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -69,6 +70,23 @@
       }
 
       // scene.add( cube2 );
+      return renderer.render(scene, camera);
+    });
+
+    domEvents.addEventListener(cube1, 'click', function(event) {
+
+      const material = event.target.material;
+
+      if (isGray) {
+        material.color = green;
+        scene.background = gray;
+        isGray = false;
+      } else {
+        material.color = gray;
+        scene.background = green;
+        isGray = true;
+      }
+
       return renderer.render(scene, camera);
     });
 
